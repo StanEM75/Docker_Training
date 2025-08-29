@@ -1,5 +1,7 @@
 # Docker_Training
 
+![Project Image](https://www.docker.com/app/uploads/2022/12/Docker-Temporary-Image-Social-Thumbnail-1200x630-1.png)
+
 This is my first project on Docker. I created a basic application and put it into a Docker Image.
 Then, I ran a container.
 
@@ -36,5 +38,6 @@ Run `docker run -d -p 8000:8000 docker_training:1.0`
 - 🛳️ -p precises the port of the local device to connect to, as well as the Docker port for the app. The two are 8000.
 - 📂 `docker_training` is the name of the image containing all the files we want to run.
 - 📄 1.0 is the tag (here we want to say this image is the version 1).
+
 
 
