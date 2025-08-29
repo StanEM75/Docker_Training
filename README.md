@@ -11,31 +11,30 @@ Then, I ran a container.
 - .dockerignore: Files to be ignored.
   
 - main.py: Part of uv local virtual environment (can be ignored for Docker).
-- pryproject.toml: Part of uv local virtual environment (can be ignored for Docker).
+- pyproject.toml: Part of uv local virtual environment (can be ignored for Docker).
 
-## 📘 Use DOCKERFILE to create the Docker Image
+## 📘 Use Dockerfile to create the Docker Image
 
-Notebook: `Create_Variables.ipynb`
+File: `Dockerfile`
 
-I've created a notebook called `Create_Variables` where I just practiced some basic Python concepts, among which there are:
-- ✅ Variables and typing  
-- 🔁 Loops and conditions  
-- 🧩 Functions  
-- 📚 Lists and dictionaries
+Create this file in Docker sandbox. --> https://www.docker.com/play-with-docker/
 
-## 🗂️ Part 2: Structure a data project
+## 🖼️ Build the Docker Image
 
-Folder: `mon_projet_ia`
+Run `docker build -t docker_training:1.0`
 
-I've created a folder called `mon_projet_ia` where I just checked how to organize a data project, with useful subfolders:
-- 📊 data: Contains raw and processed data --> 1 raw_data.csv containing random values and 1 processed_data.csv containing processed data of raw_data.csv
-- 📤 models: Contains results of models trainings --> Nothing here
-- 📄 notebooks: Contains notebooks for exploration --> Copy of `Create_Variables.ipynb`
-- 📚 src: Contains data preparation files, model trainings and reusable functions
-- ➡️ tests: Contains tests to be applied --> Here 1 test to calculate the area of a circle
+- 🖼️ build tells Docker to create the image.
+- 📤 -t is for applying a tag.
+- 📂 `docker_training` is the name of the repository containing all the files we want to run.
+- 📄 1.0 is the tag (here we want to say this image is the version 1).
 
-## 🪧 Part 3: Add unit tests
+## 🪧 Run a container based on this Docker Image
 
-Subfolder: `mon_projet_ia/tests`
+Run `docker run -d -p 8000:8000 docker_training:1.0`
 
-I've created a subfolder called `tests` in `mon_projet_ia` where I just implemented some unit tests related to mathematical functions stored in `mon_projet_ia/src/utils/maths_utils.py`.
+- 🔂 -d tells Docker to run the container in the background to avoid printing all the logs while running.
+- 🛳️ -p precises the port of the local device to connect to, as well as the Docker port for the app. The two are 8000.
+- 📂 `docker_training` is the name of the image containing all the files we want to run.
+- 📄 1.0 is the tag (here we want to say this image is the version 1).
+
+
